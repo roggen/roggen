@@ -212,7 +212,7 @@ public interface Stream<A> extends //
    * <code>amountOfElements</code>, the resulting stream will retrieve the same
    * elements than this stream.
    * 
-   * @param amountOfElements
+   * @param amountOfElements the number of elements to take. 
    * @return a new {@link Stream} projection that will retrieve up to N elements
    */
   @Projection

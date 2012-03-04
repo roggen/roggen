@@ -86,6 +86,11 @@ public abstract class RepetableStreamTheories extends StreamTheories {
   public final <A> void dropANumberOfElementsGreaterThanSizeAnswersAnEmptyStream(Stream<A> stream) {
     assertTrue(stream.drop(stream.size() + 10).isEmpty());
   }
+  /***/
+  @Theory
+  public final <A> void dropANegativeNumberOfElementsAnswersAnEquivalentStream(Stream<A> stream) {
+    assertTrue(stream.drop(-1).equiv(stream));
+  }
 
   /**
    * Test that all elements from a filter stream stasify the filtering condition
@@ -264,6 +269,8 @@ public abstract class RepetableStreamTheories extends StreamTheories {
     }));
   }
   /***/
+  
+  @Theory
   public <A> void streamEquivToItself(Stream<A> stream) throws Exception {
     assertTrue(stream.equiv(stream));
   }

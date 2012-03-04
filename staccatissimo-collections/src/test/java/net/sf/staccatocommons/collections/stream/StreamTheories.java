@@ -66,7 +66,7 @@ public abstract class StreamTheories {
   public final void sizeOfStreamReturnedByTakeIsLessOrEqualToTakeArgument(int size, Stream<?> stream) {
     assertTrue(stream.take(size).size() <= size);
   }
-
+  
   /**
    */
   @Theory
@@ -76,6 +76,12 @@ public abstract class StreamTheories {
         argument.reduce(integer().add());
       }
     });
+  }
+  
+  /***/
+  @Theory
+  public final <A> void takeANegativeNumberOfElementsAnswersAnEmptyStream(Stream<A> stream) {
+    assertTrue(stream.take(-1).isEmpty());
   }
 
   /**
