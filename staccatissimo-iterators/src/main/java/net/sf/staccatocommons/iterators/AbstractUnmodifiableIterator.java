@@ -16,12 +16,10 @@ package net.sf.staccatocommons.iterators;
 
 import java.util.Iterator;
 
-import net.sf.staccatocommons.restrictions.value.Unmodifiable;
-
 /**
  * An abstract {@link Iterator} that does not support {@link #remove()}.
  * Although its name suggests the contrary, {@link AbstractUnmodifiableIterator}
- * are not {@link Unmodifiable}, actually.
+ * are not unmodifiable actually.
  * 
  * @author flbulgarelli
  * 

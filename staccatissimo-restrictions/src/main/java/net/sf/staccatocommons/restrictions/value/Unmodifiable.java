@@ -21,7 +21,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import net.sf.staccatocommons.restrictions.Conditionally;
 import net.sf.staccatocommons.restrictions.Restriction;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 /**
  * Unmodifiables are objects that do not expose publicly any method that may
@@ -40,7 +42,11 @@ import net.sf.staccatocommons.restrictions.Restriction;
  * 
  * @author flbulgarelli
  * @see Restriction
+ * @deprecated depending on your needs, use {@link Conditionally} +
+ *             {@link ValueObject} instead. Starting on Staccatissimo 2.3, there
+ *             is no exact equivalent for {@link Unmodifiable}
  */
+@Deprecated
 @Documented
 @Inherited
 @Restriction

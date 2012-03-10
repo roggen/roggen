@@ -24,6 +24,7 @@ import org.junit.Test;
  * @author flbulgarelli
  * 
  */
+@Deprecated
 public class LazyUnitTest {
 
   private int var;

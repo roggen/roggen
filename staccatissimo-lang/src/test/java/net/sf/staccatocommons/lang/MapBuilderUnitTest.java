@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.SortedMap;
 
 import net.sf.staccatocommons.lang.builder.BuilderAlreadyUsedException;
-import net.sf.staccatocommons.restrictions.value.Immutable;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 import org.junit.Test;
 
@@ -91,10 +91,10 @@ public class MapBuilderUnitTest {
 
   /**
    * Tests that maps returned by {@link MapBuilder#mapWith(Object, Object)} are
-   * Conditionally {@link Immutable}
+   * Conditionally {@link ValueObject}
    */
   @Test(expected = UnsupportedOperationException.class)
-  public void testMapIsImmutable() {
+  public void testMapIsValueObject() {
     Map<String, Integer> map = MapBuilder //
       .mapWith("Tom", 10)
       .with("Annie", 5)

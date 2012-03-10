@@ -16,10 +16,11 @@
 package net.sf.staccatocommons.defs.predicate;
 
 import net.sf.staccatocommons.defs.Applicable;
-import net.sf.staccatocommons.defs.Applicative;
 import net.sf.staccatocommons.defs.Evaluable;
 import net.sf.staccatocommons.defs.Executable;
 import net.sf.staccatocommons.defs.NullSafe;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
@@ -27,7 +28,8 @@ import net.sf.staccatocommons.restrictions.check.NonNull;
  * 
  * @author flbulgarelli
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Predicate<A> extends Evaluable<A>, Applicable<A, Boolean> {
 
   /**

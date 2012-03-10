@@ -17,15 +17,15 @@ package net.sf.staccatocommons.io;
 
 import java.io.PrintStream;
 
-import net.sf.staccatocommons.defs.Applicative;
 import net.sf.staccatocommons.defs.Executable;
 import net.sf.staccatocommons.lang.block.internal.TopLevelBlock;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
 import net.sf.staccatocommons.restrictions.Constant;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 import net.sf.staccatocommons.restrictions.processing.EnforceRestrictions;
 
 /**
- * Simple IO {@link Applicative}s
+ * Simple IO {@link FunctionLikeObject}s
  * 
  * @author flbulgarelli
  */

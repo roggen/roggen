@@ -20,10 +20,12 @@ import net.sf.staccatocommons.defs.partial.FourthAware;
 import net.sf.staccatocommons.defs.partial.SecondAware;
 import net.sf.staccatocommons.defs.partial.ThirdAware;
 import net.sf.staccatocommons.defs.partial.ToListAware;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 /**
  * @author flbulgarelli
  * @since 1.2
  */
+@ValueObject
 public interface Tuple4<A, B, C, D> extends ToListAware<Object>, FirstAware<A>, SecondAware<B>,
   ThirdAware<C>, FourthAware<D>, Comparable<Tuple4<A, B, C, D>> {}

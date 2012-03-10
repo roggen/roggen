@@ -27,8 +27,8 @@ import net.sf.staccatocommons.numbers.internal.FloatType;
 import net.sf.staccatocommons.numbers.internal.IntegerType;
 import net.sf.staccatocommons.numbers.internal.LongType;
 import net.sf.staccatocommons.restrictions.Constant;
+import net.sf.staccatocommons.restrictions.SideEffectFree;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
 
 /**
  * 

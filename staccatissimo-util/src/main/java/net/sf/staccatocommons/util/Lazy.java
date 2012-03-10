@@ -34,8 +34,9 @@ import net.sf.staccatocommons.lang.Option;
  * @author flbulgarelli
  * 
  * @param <T>
- * 
+ * @deprecated 
  */
+@Deprecated
 public abstract class Lazy<T> implements Thunk<T> {
 
   private Option<T> lazyValue = Option.none();

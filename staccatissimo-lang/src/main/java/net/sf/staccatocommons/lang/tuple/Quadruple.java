@@ -19,9 +19,9 @@ import java.io.Serializable;
 import net.sf.staccatocommons.defs.tuple.Tuple4;
 import net.sf.staccatocommons.lang.value.RelevantState;
 import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * Four-components {@link AbstractTuple}
@@ -34,8 +34,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  * @param <D>
  * 
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ ValueObject.class, Serializable.class })
 public final class Quadruple<A, B, C, D> extends AbstractTuple implements Tuple4<A, B, C, D> {
 
   private static final long serialVersionUID = -1072243152313731077L;

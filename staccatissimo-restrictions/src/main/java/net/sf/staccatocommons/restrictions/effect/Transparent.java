@@ -49,7 +49,9 @@ import net.sf.staccatocommons.restrictions.value.Immutable;
  *      transparency</a>
  * @see SideEffectFree
  * @see Immutable
+ * @deprecated 
  */
+@Deprecated
 @Documented
 @Inherited
 @Restriction

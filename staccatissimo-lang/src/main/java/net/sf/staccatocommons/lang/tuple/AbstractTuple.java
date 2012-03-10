@@ -23,15 +23,16 @@ import net.sf.staccatocommons.defs.tuple.Tuple3;
 import net.sf.staccatocommons.lang.tuple.internal.TupleToStringStyle;
 import net.sf.staccatocommons.lang.value.RelevantState;
 import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * <p>
  * A {@link AbstractTuple} is a fixed size sequence of heterogeneous objects.
- * They are {@link ConditionallyImmutable} and {@link ConditionallySerializable}
- * . They are comparable, as long as they components are, too.
+ * They are {@link Conditionally} {@link ValueObject} and {@link Conditionally}
+ * {@link Serializable} . They are comparable, as long as they components are,
+ * too.
  * </p>
  * <p>
  * Tuples are aimed to be used in those situations where an object that just
@@ -78,8 +79,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  * @see Tuple3
  * @see Quadruple
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ ValueObject.class, Serializable.class })
 public abstract class AbstractTuple implements Serializable {
 
   private static final long serialVersionUID = -3943649706502147516L;

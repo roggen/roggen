@@ -22,6 +22,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import net.sf.staccatocommons.restrictions.Restriction;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 /**
  * {@link Immutable}s are objects whose state, if any, can not be mutated in any
@@ -39,7 +40,9 @@ import net.sf.staccatocommons.restrictions.Restriction;
  * 
  * @author fbulgarelli
  * @see Restriction
+ * @deprecated user {@link ValueObject} instead
  */
+@Deprecated
 @Documented
 @Inherited
 @Restriction

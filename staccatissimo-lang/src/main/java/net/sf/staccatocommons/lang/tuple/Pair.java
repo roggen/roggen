@@ -19,9 +19,9 @@ import java.io.Serializable;
 import net.sf.staccatocommons.defs.tuple.Tuple2;
 import net.sf.staccatocommons.lang.value.RelevantState;
 import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * Two-components {@link AbstractTuple}
@@ -33,8 +33,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  * @param <B>
  *          second component type
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ ValueObject.class, Serializable.class })
 public final class Pair<A, B> extends AbstractTuple implements Tuple2<A, B> {
 
   private static final long serialVersionUID = -6479045670420592337L;

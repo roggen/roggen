@@ -23,19 +23,19 @@ import java.io.Reader;
 import java.nio.channels.FileChannel;
 
 import net.sf.staccatocommons.check.Ensure;
-import net.sf.staccatocommons.defs.Applicative;
 import net.sf.staccatocommons.defs.function.Function;
 import net.sf.staccatocommons.defs.predicate.Predicate;
 import net.sf.staccatocommons.io.internal.FilePredicate;
 import net.sf.staccatocommons.lang.SoftException;
 import net.sf.staccatocommons.lang.function.internal.TopLevelFunction;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
 import net.sf.staccatocommons.restrictions.Constant;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 
 /**
- * Simple {@link Applicative}s for dealing with {@link File}s
+ * Simple {@link FunctionLikeObject}s for dealing with {@link File}s
  * 
  * @author flbulgarelli
  */

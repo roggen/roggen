@@ -15,6 +15,9 @@
 
 package net.sf.staccatocommons.defs;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
+
 /**
  * {@link Evaluable2}s are boolean conditions over two argument that can be
  * tested using its {@link #eval(Object, Object)} message.
@@ -31,10 +34,11 @@ package net.sf.staccatocommons.defs;
  * @param <B>
  *          the type of the second argument
  * 
- * @see Applicative Recomendations for implementing
+ * @see FunctionLikeObject Recomendations for implementing
  * @see Evaluable
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Evaluable2<A, B> {
 
   /**

@@ -15,6 +15,8 @@
 
 package net.sf.staccatocommons.defs;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
@@ -32,10 +34,11 @@ import net.sf.staccatocommons.restrictions.check.NonNull;
  *          third argument type
  * @param <D>
  *          return type type of returned thunk
- * @see Applicative Recomendations for implementing
+ * @see FunctionLikeObject Recomendations for implementing
  * @see Thunk
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Delayable3<A, B, C, D> {
 
   /**

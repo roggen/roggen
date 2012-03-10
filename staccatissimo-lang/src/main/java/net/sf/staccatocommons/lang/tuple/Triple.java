@@ -19,9 +19,9 @@ import java.io.Serializable;
 import net.sf.staccatocommons.defs.tuple.Tuple3;
 import net.sf.staccatocommons.lang.value.RelevantState;
 import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * Three-components {@link AbstractTuple}.
@@ -33,8 +33,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  * @param <C>
  * 
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ ValueObject.class, Serializable.class })
 public final class Triple<A, B, C> extends AbstractTuple implements Tuple3<A, B, C> {
 
   private static final long serialVersionUID = 5811264763831754560L;

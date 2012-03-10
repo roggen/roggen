@@ -19,8 +19,9 @@ import java.util.Map;
 
 import net.sf.staccatocommons.restrictions.Conditionally;
 import net.sf.staccatocommons.restrictions.Constant;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
+import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
  * <p>
@@ -60,10 +61,9 @@ import net.sf.staccatocommons.restrictions.value.Value;
  *          the type of optional value
  * 
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
-public abstract class Option<A> extends AbstractOptional<A> implements
-  Serializable {
+@EquivObject
+@Conditionally({ ValueObject.class, Serializable.class })
+public abstract class Option<A> extends AbstractOptional<A> implements Serializable {
 
   private static final long serialVersionUID = -4635925023376621559L;
 

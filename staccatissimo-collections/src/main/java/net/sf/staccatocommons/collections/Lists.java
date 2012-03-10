@@ -21,11 +21,12 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 
+import net.sf.staccatocommons.restrictions.Conditionally;
 import net.sf.staccatocommons.restrictions.Constant;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.MinSize;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 import net.sf.staccatocommons.restrictions.check.NotEmpty;
-import net.sf.staccatocommons.restrictions.value.Unmodifiable;
 
 import org.apache.commons.lang.ObjectUtils;
 
@@ -165,7 +166,7 @@ public class Lists {
   }
 
   /**
-   * Answers a new {@link Unmodifiable} list with the given elements.
+   * Answers a new unmodifiable list with the given elements.
    * 
    * This method is not equivalent to {@link Arrays#asList(Object...)}, which
    * answers mutable lists
@@ -174,6 +175,7 @@ public class Lists {
    * @param elements
    * @return an unmodifiable list
    */
+  @Conditionally(ValueObject.class)
   public static <A> List<A> from(A... elements) {
     return new UnmodifiableArrayList<A>(elements);
   }

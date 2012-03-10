@@ -19,8 +19,8 @@ import java.util.Comparator;
 
 import net.sf.staccatocommons.lang.predicate.AbstractPredicate2;
 import net.sf.staccatocommons.lang.value.RelevantState.StateCollector;
+import net.sf.staccatocommons.restrictions.SideEffectFree;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.effect.Transparent;
 
 import org.apache.commons.lang.builder.CompareToBuilder;
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -87,7 +87,7 @@ import org.apache.commons.lang.builder.ToStringStyle;
  *          the type of object this {@link RelevantState} applies to
  * @author flbulgarelli
  */
-@Transparent
+@SideEffectFree
 public abstract class RelevantState<A> extends AbstractPredicate2<A, A> implements Comparator<A> {
 
   private final int relevantAttributesCount;
