@@ -23,7 +23,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.Date;
 
+import net.sf.staccatocommons.restrictions.EquivObject;
 import net.sf.staccatocommons.restrictions.Restriction;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 /**
  * 
@@ -58,7 +60,11 @@ import net.sf.staccatocommons.restrictions.Restriction;
  * @see Unmodifiable
  * @see Restriction
  * @author flbulgarelli
+ * @deprecated depending on your needs, use {@link EquivObject} or
+ *             {@link ValueObject} instead. Staring on Staccatissimo 2.3, there
+ *             is no exact equivalent for {@link Value}
  */
+@Deprecated
 @Documented
 @Inherited
 @Restriction

@@ -20,12 +20,14 @@ import java.util.Map.Entry;
 import net.sf.staccatocommons.defs.partial.FirstAware;
 import net.sf.staccatocommons.defs.partial.SecondAware;
 import net.sf.staccatocommons.defs.partial.ToListAware;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
  * @author flbulgarelli
  * @since 1.2 
  */
+@ValueObject
 public interface Tuple2<A, B> extends ToListAware<Object>, FirstAware<A>, SecondAware<B>, Comparable<Tuple2<A, B>>,
   Entry<A, B> {
 

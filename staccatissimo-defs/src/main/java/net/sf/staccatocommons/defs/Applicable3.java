@@ -14,6 +14,9 @@
 
 package net.sf.staccatocommons.defs;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
+
 
 /**
  * {@link Applicable3}s are transformations that take three arguments and have a
@@ -31,9 +34,10 @@ package net.sf.staccatocommons.defs;
  *          third argument type
  * @param <D>
  *          return type
- * @see Applicative Recomendations for implementing
+ * @see FunctionLikeObject Recomendations for implementing
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Applicable3<A, B, C, D> {
 
   /**

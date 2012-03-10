@@ -14,6 +14,9 @@
 
 package net.sf.staccatocommons.defs;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
+
 /**
  * A {@link Thunk} is a computation that takes no arguments a returns a value.
  * In other words, is an object that is capable of providing another one,
@@ -35,9 +38,10 @@ package net.sf.staccatocommons.defs;
  * @param <T>
  *          the type of provided value
  * 
- * @see Applicative Recomendations for implementing
+ * @see FunctionLikeObject Recomendations for implementing
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Thunk<T> {
 
   /**

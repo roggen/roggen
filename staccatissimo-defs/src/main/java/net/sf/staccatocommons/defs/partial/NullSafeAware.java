@@ -16,13 +16,13 @@
 package net.sf.staccatocommons.defs.partial;
 
 import net.sf.staccatocommons.defs.Applicable;
-import net.sf.staccatocommons.defs.Applicative;
 import net.sf.staccatocommons.defs.NullSafe;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
  * A {@link NullSafeAware}s are object that may be converted to an
- * {@link Applicative} object of type {@code A} that is {@link NullSafe}, that
+ * {@link FunctionLikeObject} object of type {@code A} that is {@link NullSafe}, that
  * is, that accepts nulls in its applicative method.
  * 
  * {@link NullSafeAware}s parameterized by type {@code A}
@@ -35,7 +35,7 @@ import net.sf.staccatocommons.restrictions.check.NonNull;
 public interface NullSafeAware<A> {
 
   /**
-   * Answers a new {@link Applicative} of type {@code A} that accepts nulls for
+   * Answers a new {@link FunctionLikeObject} of type {@code A} that accepts nulls for
    * its applicative method, that is, it will not throw any exception if any of
    * its arguments is null.
    * 

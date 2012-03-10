@@ -12,7 +12,6 @@
  *  GNU Lesser General Public License for more details.
  */
 
-
 package net.sf.staccatocommons.restrictions;
 
 import java.lang.annotation.Documented;
@@ -22,19 +21,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
-import net.sf.staccatocommons.restrictions.effect.Transparent;
 
 /**
  * {@link Restriction} that denotes that the return value of a method is always
  * the same object. <strong>This does not necessary mean that the returned
  * object is a singleton</strong>.
  * <p>
- * Although theoretically a method may be constant and still not
- * {@link Transparent} - because of not being {@link SideEffectFree}, in
- * practice this is a bug source. Thus, {@link Constant} annotated methods
- * <strong>must</strong> be {@link Transparent}, and they do not need to be
- * annotated with that annotation too, as it is implied.
+ * {@link Constant} methods <strong>must</strong> be {@link SideEffectFree}.
+ * They do not need to be annotated with that annotation too, as it is implied.
  * </p>
  * <p>
  * Constant methods <strong>must</strong> be not null, thus they do not need to

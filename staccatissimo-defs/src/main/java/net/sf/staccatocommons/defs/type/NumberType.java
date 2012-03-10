@@ -19,8 +19,8 @@ import java.util.Comparator;
 import net.sf.staccatocommons.defs.function.Function;
 import net.sf.staccatocommons.defs.function.Function2;
 import net.sf.staccatocommons.restrictions.Constant;
-import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
-import net.sf.staccatocommons.restrictions.value.Immutable;
+import net.sf.staccatocommons.restrictions.SideEffectFree;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 /**
  * A Strategy for dealing with {@link Number}s is a polymorphic way.
@@ -46,8 +46,7 @@ import net.sf.staccatocommons.restrictions.value.Immutable;
  * mutate argument second arguments of methods that take two parameters
  * </p>
  * <p>
- * {@link NumberType} <strong>must</strong> be
- * {@link net.sf.staccatocommons.restrictions.value.Immutable}
+ * {@link NumberType}s <strong>must</strong> be {@link ValueObject}s
  * </p>
  * 
  * @author flbulgarelli
@@ -59,7 +58,7 @@ import net.sf.staccatocommons.restrictions.value.Immutable;
  *          maximum flexibility
  * @see <a href="http://en.wikipedia.org/wiki/Type_class">Type class</a>
  */
-@Immutable
+@ValueObject
 public interface NumberType<A> extends Comparator<A> {
 
   /**
@@ -297,6 +296,7 @@ public interface NumberType<A> extends Comparator<A> {
    *           representation for the this {@link NumberType}
    * @since 2.1
    */
+  @SideEffectFree
   A fromInt(int value);
 
 }

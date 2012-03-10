@@ -30,14 +30,17 @@ import net.sf.staccatocommons.lang.builder.Builder;
 import net.sf.staccatocommons.lang.builder.BuilderAlreadyUsedException;
 import net.sf.staccatocommons.lang.function.AbstractFunction;
 import net.sf.staccatocommons.lang.function.Functions;
+import net.sf.staccatocommons.restrictions.Conditionally;
 import net.sf.staccatocommons.restrictions.Constant;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Unmodifiable;
 
 /**
  * a {@link Builder} for {@link Collection}s. With the exception of
  * {@link #from(Collection, Applicable)}, all its factory methods grant to
- * return CollectionBuilder that build {@link Unmodifiable} collections
+ * return CollectionBuilder that build unmodifiable collections which
+ * conditionally are {@link ValueObject}, depending on the immutability of added
+ * elements.
  * 
  * @author flbulgarelli
  */
@@ -115,6 +118,7 @@ public class CollectionBuilder<A, B extends Collection<A>> implements Builder<B>
   }
 
   @NonNull
+  @Conditionally(ValueObject.class)
   public B build() throws BuilderAlreadyUsedException {
     if (list == null)
       throw new BuilderAlreadyUsedException();
@@ -162,7 +166,7 @@ public class CollectionBuilder<A, B extends Collection<A>> implements Builder<B>
   /**
    * Answers a new {@link CollectionBuilder} that configures a {@link List},
    * with the given element already added. The list built this builder grants to
-   * be {@link Unmodifiable}
+   * be unmodifiable
    * 
    * @param <A>
    * @return a new {@link CollectionBuilder} that builds lists
@@ -179,7 +183,7 @@ public class CollectionBuilder<A, B extends Collection<A>> implements Builder<B>
   }
 
   /**
-   * Answers a constant function that returns an {@link Unmodifiable} view of
+   * Answers a constant function that returns an unmodifiable view of
    * its {@link SortedSet} argument
    * 
    * @param <A>
@@ -195,7 +199,7 @@ public class CollectionBuilder<A, B extends Collection<A>> implements Builder<B>
   }
 
   /**
-   * Answers a constant function that returns an {@link Unmodifiable} view of
+   * Answers a constant function that returns an unmodifiable view of
    * its {@link SortedSet} argument
    * 
    * @param <A>
@@ -211,7 +215,7 @@ public class CollectionBuilder<A, B extends Collection<A>> implements Builder<B>
   }
 
   /**
-   * Answers a constant function that returns an {@link Unmodifiable} view of
+   * Answers a constant function that returns an unmmodifiable view of
    * its list argument
    * 
    * @param <A>
@@ -227,7 +231,7 @@ public class CollectionBuilder<A, B extends Collection<A>> implements Builder<B>
   }
 
   /**
-   * Answers a constant function that returns an {@link Unmodifiable} view of
+   * Answers a constant function that returns an unmodifiable view of
    * its collection argument
    * 
    * @param <A>

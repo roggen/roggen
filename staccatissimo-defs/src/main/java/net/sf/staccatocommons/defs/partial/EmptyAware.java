@@ -14,7 +14,7 @@
 
 package net.sf.staccatocommons.defs.partial;
 
-import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
+import net.sf.staccatocommons.restrictions.SideEffectFree;
 
 /**
  * Interface for objects that understand {@link #isEmpty()} message.
