@@ -14,13 +14,17 @@
 
 package net.sf.staccatocommons.collections.stream;
 
-import static net.sf.staccatocommons.lambda.Lambda.*;
-import static net.sf.staccatocommons.lang.Compare.*;
-import static net.sf.staccatocommons.lang.tuple.Tuples.*;
-import static net.sf.staccatocommons.numbers.NumberTypes.*;
-import static net.sf.staccatocommons.numbers.Numbers.*;
-import static net.sf.staccatocommons.util.Strings.*;
-import static org.junit.Assert.*;
+import static net.sf.staccatocommons.lang.Compare.lessThan;
+import static net.sf.staccatocommons.lang.tuple.Tuples._;
+import static net.sf.staccatocommons.numbers.NumberTypes.add;
+import static net.sf.staccatocommons.numbers.NumberTypes.bigInteger;
+import static net.sf.staccatocommons.numbers.NumberTypes.double_;
+import static net.sf.staccatocommons.numbers.NumberTypes.integer;
+import static net.sf.staccatocommons.numbers.Numbers.i;
+import static net.sf.staccatocommons.util.Strings.length;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -44,7 +48,6 @@ import net.sf.staccatocommons.lang.tuple.Tuples;
 import net.sf.staccatocommons.reductions.Reductions;
 import net.sf.staccatocommons.util.Strings;
 
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -58,14 +61,6 @@ import org.junit.Test;
  */
 public class AbstractStreamBasicTest {
 
-  /**
-   * 
-   */
-  @BeforeClass
-  public static void before() {
-    lambda($(Streams.type()).toList());
-  }
-  
   /**
    * Test for {@link Stream#product(NumberType)}
    */
@@ -490,7 +485,11 @@ public class AbstractStreamBasicTest {
     // Test that both streams have as as elements collections of the same size
     assertTrue(Streams//
       .cons(Arrays.asList(10, 20), Arrays.asList(5, 26, 9))
-      .equivOn(lambda($(Collection.class).size()), Arrays.asList(0, 0), Arrays.asList(5, 6, 96)));
+      .equivOn(new AbstractFunction<Collection, Integer>() {
+        public Integer apply(Collection arg) {
+          return arg.size();
+        }
+      }, Arrays.asList(0, 0), Arrays.asList(5, 6, 96)));
   }
 
   /**
