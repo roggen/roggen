@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
-   <groupId>net.sf.staccatocommons</groupId>
-   <artifactId>staccatissimo-parent-pom</artifactId>
-   <version>2.3-SNAPSHOT</version>
+   <groupId>net.sf.roggen</groupId>
+   <artifactId>roggen-parent-pom</artifactId>
+   <version>3.0-SNAPSHOT</version>
    <packaging>pom</packaging>
    <name>Staccatissimo-Parent-Pom</name>
-   <url>http://staccatocommons.sourceforge.net/staccatissimo</url>
+   <url>http://roggen.sourceforge.net/roggen</url>
    <description>Staccatissimo Module and Parent Pom</description>
    <organization>
       <name>StaccatoCommons</name>
-      <url>http://staccatocommons.sourceforge.net/</url>
+      <url>http://roggen.sourceforge.net/</url>
    </organization>
    <licenses>
       <license>
@@ -28,9 +28,9 @@
    </parent>
 
    <scm>
-      <connection>scm:git:https://github.com/staccatocommons/staccatissimo.git</connection>
-      <developerConnection>scm:git:https://github.com/staccatocommons/staccatissimo.git</developerConnection>
-      <url>https://github.com/staccatocommons/staccatissimo</url>
+      <connection>scm:git:https://github.com/roggen/roggen.git</connection>
+      <developerConnection>scm:git:https://github.com/roggen/roggen.git</developerConnection>
+      <url>https://github.com/roggen/roggen</url>
    </scm>
 
 
@@ -47,7 +47,7 @@
    <distributionManagement>
       <site>
          <id> ${distribution.site.id}</id>
-         <url>${distribution.site.url}/staccatissimo</url>
+         <url>${distribution.site.url}/roggen</url>
       </site>
    </distributionManagement>
    <build>
@@ -120,16 +120,16 @@
                      <version>2.8</version>
                      <configuration>
                         <excludePackageNames>*.internal</excludePackageNames>
-                        <bottom><![CDATA[<a href="http://sourceforge.net/projects/staccatocommons"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=317949&amp;type=13" width="120" height="30" alt="Get Staccatocommons at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>]]></bottom>
+                        <bottom><![CDATA[<a href="http://sourceforge.net/projects/roggen"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=317949&amp;type=13" width="120" height="30" alt="Get Staccatocommons at SourceForge.net. Fast, secure and Free Open Source software downloads" /></a>]]></bottom>
                         <useStandardDocletOptions>true</useStandardDocletOptions>
                         <links>
-                           <link>http://staccatocommons.sourceforge.net/staccatissimo/staccatissimo-check/apidocs</link>
-                           <link>http://staccatocommons.sourceforge.net/staccatissimo/staccatissimo-iterators/apidocs</link>
-                           <link>http://staccatocommons.sourceforge.net/staccatissimo/staccatissimo-restrictions/apidocs</link>
-                           <link>http://staccatocommons.sourceforge.net/staccatissimo/staccatissimo-lang/apidocs</link>
-                           <link>http://staccatocommons.sourceforge.net/staccatissimo/staccatissimo-io/apidocs</link>
-                           <link>http://staccatocommons.sourceforge.net/staccatissimo/staccatissimo-collections/apidocs</link>
-                           <link>http://staccatocommons.sourceforge.net/staccatissimo/staccatissimo-defs/apidocs</link>
+                           <link>http://roggen.sourceforge.net/roggen/roggen-check/apidocs</link>
+                           <link>http://roggen.sourceforge.net/roggen/roggen-iterators/apidocs</link>
+                           <link>http://roggen.sourceforge.net/roggen/roggen-restrictions/apidocs</link>
+                           <link>http://roggen.sourceforge.net/roggen/roggen-lang/apidocs</link>
+                           <link>http://roggen.sourceforge.net/roggen/roggen-io/apidocs</link>
+                           <link>http://roggen.sourceforge.net/roggen/roggen-collections/apidocs</link>
+                           <link>http://roggen.sourceforge.net/roggen/roggen-defs/apidocs</link>
                         </links>
                         <skip>false</skip>
                      </configuration>
@@ -215,23 +215,14 @@
       <profile>
          <id>basic</id>
          <modules>
-            <module>staccatissimo-testing</module>
-            <module>staccatissimo-restrictions</module>
-            <module>staccatissimo-defs</module>
-            <module>staccatissimo-check</module>
-            <module>staccatissimo-iterators</module>
-            <module>staccatissimo-lang</module>
-            <module>staccatissimo-numbers</module>
-            <module>staccatissimo-util</module>
-            <module>staccatissimo-dynamic</module>
-            <module>staccatissimo-lambda</module>
-            <module>staccatissimo-reductions</module>
-            <module>staccatissimo-collections</module>
-            <module>staccatissimo-io</module>
-            <module>staccatissimo-control</module>
-            <module>staccatissimo-instrument</module>
-            <module>staccatissimo-restrictions-instrument</module>
-            <module>staccatissimo-restrictions-instrument-maven-plugin</module>
+            <module>roggen-testing</module>
+            <module>roggen-restrictions</module>
+            <module>roggen-core</module>
+            <module>roggen-dynamic</module>
+            <module>roggen-lambda</module>
+            <module>roggen-instrument</module>
+            <module>roggen-restrictions-instrument</module>
+            <module>roggen-restrictions-instrument-maven-plugin</module>
          </modules>
          <build>
             <plugins>
@@ -251,11 +242,9 @@
       <profile>
          <id>noinstrument</id>
          <modules>
-            <module>staccatissimo-testing</module>
-            <module>staccatissimo-restrictions</module>
-            <module>staccatissimo-defs</module>
-            <module>staccatissimo-check</module>
-            <module>staccatissimo-restrictions-instrument-maven-plugin</module>
+            <module>roggen-testing</module>
+            <module>roggen-restrictions</module>
+            <module>roggen-restrictions-instrument-maven-plugin</module>
          </modules>
          <build>
             <plugins>
@@ -275,19 +264,12 @@
       <profile>
          <id>instrument</id>
          <modules>
-            <module>staccatissimo-iterators</module>
-            <module>staccatissimo-lang</module>
-            <module>staccatissimo-numbers</module>
-            <module>staccatissimo-util</module>
-            <module>staccatissimo-dynamic</module>
-            <module>staccatissimo-lambda</module>
-            <module>staccatissimo-restrictions</module>
-            <module>staccatissimo-reductions</module>
-            <module>staccatissimo-collections</module>
-            <module>staccatissimo-control</module>
-            <module>staccatissimo-io</module>
-            <module>staccatissimo-instrument</module>
-            <module>staccatissimo-restrictions-instrument</module>
+            <module>roggen-core</module>
+            <module>roggen-dynamic</module>
+            <module>roggen-lambda</module>
+            <module>roggen-restrictions</module>
+            <module>roggen-instrument</module>
+            <module>roggen-restrictions-instrument</module>
          </modules>
          <activation>
             <activeByDefault>true</activeByDefault>
@@ -295,8 +277,8 @@
          <build>
             <plugins>
                <plugin>
-                  <groupId>net.sf.staccatocommons</groupId>
-                  <artifactId>staccatissimo-restrictions-instrument-maven-plugin</artifactId>
+                  <groupId>net.sf.roggen</groupId>
+                  <artifactId>roggen-restrictions-instrument-maven-plugin</artifactId>
                   <version>${project.version}</version>
                   <configuration>
                      <ignoreReturnChecks>true</ignoreReturnChecks>
