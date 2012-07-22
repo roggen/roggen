@@ -19,9 +19,9 @@ import java.io.Serializable;
 import net.sf.staccatocommons.defs.Thunk;
 import net.sf.staccatocommons.lang.value.RelevantState;
 import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * A {@link Thunk} that is {@link Comparable}, based on a priority attribute.
@@ -33,8 +33,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  * @param <P>
  *          the type of priority object
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ Serializable.class, ValueObject.class })
 public class Prioritized<P extends Comparable<P>, T> implements Comparable<Prioritized<P, T>>, Thunk<T>, Serializable {
 
   private static final long serialVersionUID = 7131041003021112454L;

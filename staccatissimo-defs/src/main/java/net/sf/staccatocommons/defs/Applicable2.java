@@ -14,6 +14,9 @@
 
 package net.sf.staccatocommons.defs;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
+
 
 /**
  * {@link Applicable2}s are transformations that take two arguments and have a
@@ -27,9 +30,10 @@ package net.sf.staccatocommons.defs;
  *          second argument type
  * @param <R>
  *          return type
- * @see Applicative Recomendations for implementing
+ * @see FunctionLikeObject Recomendations for implementing
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Applicable2<T1, T2, R> {
 
   /**

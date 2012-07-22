@@ -22,9 +22,9 @@ import net.sf.staccatocommons.defs.partial.EmptyAware;
 import net.sf.staccatocommons.lang.Compare;
 import net.sf.staccatocommons.lang.value.RelevantState;
 import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * A {@link Range} represents a an inclusive lower and upper bound of
@@ -34,8 +34,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  * 
  * @param <T>
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ Serializable.class, ValueObject.class })
 public class Range<T extends Comparable<T>> implements ContainsAware<T>, EmptyAware, Serializable {
 
   private static final long serialVersionUID = -1096861117755452369L;

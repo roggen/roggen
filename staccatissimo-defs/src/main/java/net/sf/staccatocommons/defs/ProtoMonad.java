@@ -14,12 +14,17 @@
 
 package net.sf.staccatocommons.defs;
 
+import net.sf.staccatocommons.restrictions.SideEffectFree;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
  * Very basic definition of a type that can act as a container or computation of
  * other objects, with mapping, filtering and potentially asynchronous iteration
- * capabilities
+ * capabilities.
+ * 
+ * {@link ProtoMonad}s <strong>may</strong> be {@link ValueObject}s, and their
+ * methods, {@link SideEffectFree}.
  * 
  * @author flbulgarelli
  * 

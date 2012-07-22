@@ -18,8 +18,8 @@ package net.sf.staccatocommons.iterators.thriter;
 import java.util.NoSuchElementException;
 
 import net.sf.staccatocommons.defs.Thunk;
+import net.sf.staccatocommons.restrictions.SideEffectFree;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
 
 /**
  * A {@link Thriter} - acronym for <strong>Thr</strong>ee-messages

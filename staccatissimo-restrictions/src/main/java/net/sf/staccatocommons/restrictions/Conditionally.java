@@ -22,11 +22,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.Collections;
 
-import net.sf.staccatocommons.restrictions.value.Unmodifiable;
-
 /**
  * {@link Conditionally} is a restriction modifier that indicates that an
- * objects may meet set of restrictions depending on some condition. There are
+ * object may meet set of restrictions depending on some condition. There are
  * two standard scenarios:
  * <ol>
  * <li>When the object's class has generic type parameter, and the set of
@@ -40,14 +38,11 @@ import net.sf.staccatocommons.restrictions.value.Unmodifiable;
  * Types annotated as {@link Conditionally} denote that all their instances
  * grant to conditionally meet the set constraints, depending on the attributes
  * injected by constructor or setters, or in its constructor type parameters.
- * Methods annotated as {@link Unmodifiable} denote that all the objects
- * returned by them conditionally meet the set constraints, depending on the
- * method type parametrization, the receptor object {@code this} and arguments.
  * </p>
  * <p>
- * Typical example of <code>@Conditionally(Immutable.class)</code> objects are
+ * Typical example of <code>@Conditionally(ValueObject.class)</code> objects are
  * Lists returned by {@link Collections#singletonList(Object)}, which are
- * immutable as long as its argument is immutable too.
+ * {@link ValueObject}s as long as its argument are too.
  * </p>
  * 
  * @author flbulgarelli

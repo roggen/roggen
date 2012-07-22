@@ -28,14 +28,16 @@ import net.sf.staccatocommons.lang.builder.Builder;
 import net.sf.staccatocommons.lang.builder.BuilderAlreadyUsedException;
 import net.sf.staccatocommons.lang.function.AbstractFunction;
 import net.sf.staccatocommons.lang.function.Functions;
+import net.sf.staccatocommons.restrictions.Conditionally;
 import net.sf.staccatocommons.restrictions.Constant;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Unmodifiable;
 
 /**
  * A {@link Builder} for {@link Map}s. With the exception of
  * {@link #from(Map, Applicable)}, all factory methods of {@link MapBuilder}
- * grant to return builders that build {@link Unmodifiable} maps
+ * grant to return builders that build unmodifiable maps which conditionally are
+ * {@link ValueObject}, depending on the immutability of added elements.
  * 
  * @author fbulgarelli
  * 
@@ -116,6 +118,7 @@ public class MapBuilder<K, V, M extends Map<K, V>> implements Builder<M> {
     return withWrapper(Functions.<M> identity());
   }
 
+  @Conditionally(ValueObject.class)
   @NonNull
   public M build() {
     M map = this.map;
@@ -128,7 +131,7 @@ public class MapBuilder<K, V, M extends Map<K, V>> implements Builder<M> {
   /**
    * Creates a new {@link MapBuilder} that uses the given map instance, and
    * using {@link #toUnmodifiableMap()} as postprocessor. The map built by the
-   * returned {@link Builder} grants to be {@link Unmodifiable}
+   * returned {@link Builder} grants to be unmodifiable
    * 
    * @param <K>
    * @param <V>
@@ -144,7 +147,7 @@ public class MapBuilder<K, V, M extends Map<K, V>> implements Builder<M> {
   /**
    * Creates a new {@link MapBuilder} using a {@link HashMap} as map
    * implementation and the first key and value. The map built by the returned
-   * {@link Builder} grants to be {@link Unmodifiable}
+   * {@link Builder} grants to be unmodifiable
    * 
    * @param <K>
    *          type of key
@@ -162,7 +165,7 @@ public class MapBuilder<K, V, M extends Map<K, V>> implements Builder<M> {
   /**
    * Creates a new {@link MapBuilder} using a {@link LinkedHashMap} as map
    * implementation and the first key and value. The map built by the returned
-   * {@link Builder} grants to be {@link Unmodifiable}
+   * {@link Builder} grants to be unmodifiable
    * 
    * @param <K>
    *          type of key
@@ -180,7 +183,7 @@ public class MapBuilder<K, V, M extends Map<K, V>> implements Builder<M> {
   /**
    * Creates a new {@link MapBuilder} using a {@link TreeMap} as map
    * implementation and the first key and value. The map built by the returned
-   * {@link Builder} grants to be {@link Unmodifiable}
+   * {@link Builder} grants to be unmodifiable
    * 
    * @param <K>
    *          type of key

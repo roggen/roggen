@@ -16,10 +16,10 @@
 package net.sf.staccatocommons.control.monad;
 
 import net.sf.staccatocommons.defs.Applicable;
-import net.sf.staccatocommons.defs.Applicative;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
 
 /**
- * A {@link MonadicFunction} is an {@link Applicative} from A to Monad&lt;B&gt;.
+ * A {@link MonadicFunction} is an {@link FunctionLikeObject} from A to Monad&lt;B&gt;.
  * This interface adds to Applicable a function combinator called <a
  * href="http://en.wikipedia.org/wiki/Kleisli_category">Kleisli composition</a>
  * 
@@ -29,7 +29,7 @@ import net.sf.staccatocommons.defs.Applicative;
  * @author flbulgarelli
  * @since 1.2
  */
-@Applicative
+@FunctionLikeObject
 public interface MonadicFunction<A, B> extends Applicable<A, Monad<B>> {
 
   /**

@@ -24,8 +24,8 @@ import net.sf.staccatocommons.lang.function.internal.ApplicableFunction;
 import net.sf.staccatocommons.lang.function.internal.ConstantFunction;
 import net.sf.staccatocommons.lang.function.internal.IdentityFunction;
 import net.sf.staccatocommons.restrictions.Constant;
+import net.sf.staccatocommons.restrictions.SideEffectFree;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.effect.Transparent;
 
 /**
  * Class factory methods for some common {@link Function}s
@@ -84,19 +84,20 @@ public class Functions {
 
   /**
    * Returns the identity function, that is, a {@link Function} that takes an
-   * argument and returns it. This functions grants to be {@link Transparent}
+   * argument and returns it. This functions grants to be {@link SideEffectFree}
    * 
    * @param <A>
    * @return the constant identity function
    */
   @Constant
+  @SideEffectFree
   public static <A> Function<A, A> identity() {
     return IdentityFunction.identity();
   }
 
   /**
    * Returns a function that takes one argument, and regardless of it, returns a
-   * given value. This function grants to be {@link Transparent} and
+   * given value. This function grants to be {@link SideEffectFree} and
    * {@link Constant}
    * 
    * @param <A>
@@ -105,7 +106,7 @@ public class Functions {
    *          the value the function will return when applied
    * @return a new function
    */
-  @NonNull
+  @SideEffectFree
   public static <A, B> Function<A, B> constant(B value) {
     return new ConstantFunction<A, B>(value);
   }
@@ -114,9 +115,9 @@ public class Functions {
    * Returns a function that takes one argument, and regadless of it, returns
    * the given thunk's value.
    * <p>
-   * This function grants to be {@link Transparent} and {@link Constant} only as
+   * This function grants to be {@link SideEffectFree} and {@link Constant} only as
    * long as the given {@code thunk} is transparent too. As a consequence,
-   * passing a non-transparent {@link Thunk} may be effective, but
+   * passing a non-constant {@link Thunk} may be effective, but
    * counterintuitive, as the resulting function would be impure and not
    * constant at all.
    * </p>

@@ -21,8 +21,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+
 /**
- * {@link NullSafe} restriction annotates {@link Applicative}s that can handle
+ * {@link NullSafe} restriction annotates {@link FunctionLikeObject}s that can handle
  * nulls as arguments, that is, that will not throw a
  * {@link NullPointerException} or {@link IllegalArgumentException} if any of
  * its arguments is <code>null</code>

@@ -18,11 +18,12 @@ package net.sf.staccatocommons.defs.function;
 import net.sf.staccatocommons.defs.Applicable;
 import net.sf.staccatocommons.defs.Applicable2;
 import net.sf.staccatocommons.defs.Applicable3;
-import net.sf.staccatocommons.defs.Applicative;
 import net.sf.staccatocommons.defs.Delayable3;
 import net.sf.staccatocommons.defs.NullSafe;
 import net.sf.staccatocommons.defs.partial.NullSafeAware;
 import net.sf.staccatocommons.defs.tuple.Tuple3;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 /**
  * {@link Function3}s are rich interfaced {@link Applicable3}s - two arguments
@@ -46,7 +47,8 @@ import net.sf.staccatocommons.defs.tuple.Tuple3;
  *          function return type
  * 
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Function3<A, B, C, D> extends Applicable3<A, B, C, D>, Applicable2<A, B, Function<C, D>>,
   Applicable<A, Function2<B, C, D>>, NullSafeAware<Function3<A, B, C, D>>, Delayable3<A, B, C, D> {
 

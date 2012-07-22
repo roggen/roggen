@@ -23,9 +23,9 @@ import net.sf.staccatocommons.iterators.thriter.Thriterators;
 import net.sf.staccatocommons.lang.internal.ToString;
 import net.sf.staccatocommons.lang.value.BasicEquals;
 import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -38,8 +38,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @param <T>
  * @see Option
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ ValueObject.class, Serializable.class })
 public final class Some<T> extends Option<T> {
 
   private static final long serialVersionUID = 5981912873938772033L;

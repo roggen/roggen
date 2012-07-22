@@ -17,11 +17,12 @@ package net.sf.staccatocommons.defs.function;
 
 import net.sf.staccatocommons.defs.Applicable;
 import net.sf.staccatocommons.defs.Applicable2;
-import net.sf.staccatocommons.defs.Applicative;
 import net.sf.staccatocommons.defs.Delayable2;
 import net.sf.staccatocommons.defs.NullSafe;
 import net.sf.staccatocommons.defs.partial.NullSafeAware;
 import net.sf.staccatocommons.defs.tuple.Tuple2;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
@@ -46,7 +47,8 @@ import net.sf.staccatocommons.restrictions.check.NonNull;
  *          function return type
  * 
  */
-@Applicative
+@ValueObject
+@FunctionLikeObject
 public interface Function2<A, B, C> extends Applicable2<A, B, C>, Applicable<A, Function<B, C>>, Delayable2<A, B, C>,
   NullSafeAware<Function2<A, B, C>> {
 

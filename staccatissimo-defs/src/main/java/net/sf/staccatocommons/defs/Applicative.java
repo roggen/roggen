@@ -21,6 +21,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
 import net.sf.staccatocommons.restrictions.Restriction;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
@@ -68,7 +69,9 @@ import net.sf.staccatocommons.restrictions.value.Immutable;
  * Thunk.value(), is transparent.
  * 
  * @author flbulgarelli
+ * @deprecated user {@link FunctionLikeObject} instead
  */
+@Deprecated
 @Documented
 @Retention(RetentionPolicy.SOURCE)
 @Target(ElementType.TYPE)

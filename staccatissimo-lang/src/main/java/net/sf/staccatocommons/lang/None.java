@@ -20,9 +20,9 @@ import java.util.NoSuchElementException;
 import net.sf.staccatocommons.defs.Executable;
 import net.sf.staccatocommons.defs.Thunk;
 import net.sf.staccatocommons.iterators.thriter.Thriterators;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * An undefined {@link Option}, that it, and option that does not have a value
@@ -34,8 +34,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  *          value at all.
  * @see Option
  */
-@Value
-@Immutable
+@ValueObject
+@EquivObject
 public final class None<T> extends Option<T> {
 
   private static final long serialVersionUID = 6950027007611799776L;

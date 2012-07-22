@@ -30,7 +30,7 @@ import java.math.BigInteger;
 
 import net.sf.staccatocommons.defs.function.Function2;
 import net.sf.staccatocommons.defs.predicate.Predicate;
-import net.sf.staccatocommons.restrictions.value.Immutable;
+import net.sf.staccatocommons.restrictions.ValueObject;
 
 /**
  * {@link NumberType} with extra messages restricted to integral types like
@@ -39,7 +39,7 @@ import net.sf.staccatocommons.restrictions.value.Immutable;
  * @author flbulgarelli
  * @since 2.1
  */
-@Immutable
+@ValueObject
 public interface IntegralType<A> extends NumberType<A> {
 
   /**

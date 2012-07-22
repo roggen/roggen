@@ -15,8 +15,8 @@
 /**
  * This package contains the source-level {@link net.sf.staccatocommons.restrictions.Restriction}
  * meta-annotation, which defines semantics and behavior of annotations that express constraints, 
- * and some concrete restriction annotations about serialization, unmodifiability, immutability
- * and value objects.  
+ * and some concrete restriction annotations about 
+ * <a href="http://en.wikipedia.org/wiki/Side_effect_(computer_science)">effects</a>, value objects, thread-safety, etc  
  */
 package net.sf.staccatocommons.restrictions;
 

@@ -28,8 +28,9 @@ import net.sf.staccatocommons.defs.tuple.Tuple2;
 import net.sf.staccatocommons.lang.MapBuilder;
 import net.sf.staccatocommons.lang.None;
 import net.sf.staccatocommons.lang.Option;
+import net.sf.staccatocommons.restrictions.Conditionally;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Unmodifiable;
 
 /**
  * Class methods for dealing with maps
@@ -177,7 +178,7 @@ public class Maps {
   }
 
   /**
-   * Answers a new {@link Unmodifiable} map with the given entries
+   * Answers a new umodifiable map with the given entries
    * 
    * @param <K>
    * @param <V>
@@ -185,6 +186,7 @@ public class Maps {
    *          the new map entries
    * @return a new unmodifiable map
    */
+  @Conditionally(ValueObject.class)
   public static <K, V> Map<K, V> from(Iterable<Tuple2<K, V>> entries) {
     MapBuilder<K, V, Map<K, V>> b = MapBuilder.from(new LinkedHashMap<K, V>());
     for (Tuple2<K, V> p : entries)
@@ -193,7 +195,7 @@ public class Maps {
   }
 
   /**
-   * Answers a new {@link Unmodifiable} map with the given entries
+   * Answers a new unmodifiable map with the given entries
    * 
    * @param <K>
    * @param <V>
@@ -201,6 +203,7 @@ public class Maps {
    *          the new map entries
    * @return a new unmodifiable map
    */
+  @Conditionally(ValueObject.class)
   public static <K, V> Map<K, V> from(Tuple2<K, V>... entries) {
     return from(Arrays.asList(entries));
   }

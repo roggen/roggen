@@ -26,9 +26,9 @@ import net.sf.staccatocommons.defs.partial.ContainsAware;
 import net.sf.staccatocommons.defs.partial.SizeAware;
 import net.sf.staccatocommons.restrictions.Conditionally;
 import net.sf.staccatocommons.restrictions.Constant;
+import net.sf.staccatocommons.restrictions.EquivObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.value.Immutable;
-import net.sf.staccatocommons.restrictions.value.Value;
 
 /**
  * <p>
@@ -68,8 +68,8 @@ import net.sf.staccatocommons.restrictions.value.Value;
  *          the type of optional value
  * 
  */
-@Value
-@Conditionally({ Immutable.class, Serializable.class })
+@EquivObject
+@Conditionally({ ValueObject.class, Serializable.class })
 public abstract class Option<A> extends AbstractProtoMonad<Option<A>, Option, A> implements
   Thunk<A>, Iterable<A>, SizeAware, ContainsAware<A>, Serializable {
 

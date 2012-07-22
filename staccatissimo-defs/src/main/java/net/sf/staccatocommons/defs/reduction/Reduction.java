@@ -19,8 +19,10 @@ import java.io.InputStream;
 
 import net.sf.staccatocommons.defs.Applicable;
 import net.sf.staccatocommons.defs.function.Function;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.SideEffectFree;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
-import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
 
 /**
  * A {@link Reduction} are aggregate-functions-like objects that encapsulates a
@@ -44,6 +46,8 @@ import net.sf.staccatocommons.restrictions.effect.SideEffectFree;
  * @see SideEffectFree
  * @see Function
  */
+@ValueObject
+@FunctionLikeObject
 public interface Reduction<A, B> {
 
   /**

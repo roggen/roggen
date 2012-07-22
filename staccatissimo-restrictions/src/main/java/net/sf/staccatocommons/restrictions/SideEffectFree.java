@@ -1,5 +1,4 @@
 /**
- *  Copyright (c) 2012, The Roggen Team
  *  Copyright (c) 2010-2012, The StaccatoCommons Team
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -13,7 +12,7 @@
  */
 
 
-package net.sf.staccatocommons.restrictions.effect;
+package net.sf.staccatocommons.restrictions;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -21,33 +20,25 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.sf.staccatocommons.restrictions.Restriction;
-import net.sf.staccatocommons.restrictions.value.Unmodifiable;
-
 /**
- * Side effect free is a {@link Restriction} that applies to methods that have
+  * Side effect free is a {@link Restriction} that applies to methods that have
  * no side effects. As a consequence, such methods <strong>must not</strong>
  * modify the state of its arguments, if any, nor the <code>this</code>
  * reference, if non-static, nor any attribute in scope.
  * <p>
  * When applied to types, it means that all its methods are
- * {@link SideEffectFree}. As a consequence, statefull classes that are
- * annotated this way <strong>must</strong> be ummodifiable, as mutators are
- * inheritely non-side-effect free. Thus there is no reason no annotate
- * {@link SideEffectFree} classes as {@link Unmodifiable}, as it is implicit.
+ * {@link SideEffectFree}. As a consequence, classes that are
+ * annotated this must be {@link ValueObject}, as mutators are
+ * inherently non-side-effect free. Thus there is no reason no annotate
+ * {@link SideEffectFree} classes as {@link ValueObject}, as it is implied.
  * </p>
- * <p>
- * Being {@link SideEffectFree} is necessary but not sufficient for being
- * referential transparent, thus methods annotated this way <strong>may</strong>
- * return different results for the same arguments, if any. Such methods should
- * be annotated with {@link Transparent} instead.
- * </p>
- * 
  * @author flbulgarelli
  * @see <a
  *      href="http://en.wikipedia.org/wiki/Side_effect_(computer_science)">Side
  *      effect</a>
- * @see Transparent
+ * @since 3 
+ * @author flbulgarelli
+ *
  */
 @Restriction
 @Documented

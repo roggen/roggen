@@ -14,7 +14,8 @@
 
 package net.sf.staccatocommons.check;
 
-import net.sf.staccatocommons.restrictions.effect.Transparent;
+import net.sf.staccatocommons.restrictions.ValueObject;
+
 
 /**
  * {@link Validate} is a generic {@link Check} that on failure will throw a and
@@ -30,7 +31,7 @@ import net.sf.staccatocommons.restrictions.effect.Transparent;
  *    ..etc..
  * </pre>
  * 
- * Since {@link Check}s are {@link Transparent}, and thus thread safe, it is
+ * Since {@link Check}s are {@link ValueObject}, and thus thread safe, it is
  * possible to cache {@link Validate} instances as class atributes and reuse
  * them across different validations. Example:
  * 

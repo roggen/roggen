@@ -14,6 +14,9 @@
 
 package net.sf.staccatocommons.defs;
 
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
+
 /**
  * {@link Executable}s are computations that take one argument and whose result
  * is a side effect, instead of a return value.
@@ -28,8 +31,10 @@ package net.sf.staccatocommons.defs;
  * @param <T>
  *          the type of the argument of the computation
  * 
- * @see Applicative Recomendations for implementing
+ * @see FunctionLikeObject Recomendations for implementing
  */
+@ValueObject
+@FunctionLikeObject
 public interface Executable<T> {
 
   /**

@@ -21,6 +21,8 @@ import net.sf.staccatocommons.defs.Evaluable2;
 import net.sf.staccatocommons.defs.NullSafe;
 import net.sf.staccatocommons.defs.partial.NullSafeAware;
 import net.sf.staccatocommons.defs.tuple.Tuple2;
+import net.sf.staccatocommons.restrictions.FunctionLikeObject;
+import net.sf.staccatocommons.restrictions.ValueObject;
 import net.sf.staccatocommons.restrictions.check.NonNull;
 
 /**
@@ -28,6 +30,8 @@ import net.sf.staccatocommons.restrictions.check.NonNull;
  * 
  * @author flbulgarelli
  */
+@ValueObject
+@FunctionLikeObject
 public interface Predicate2<A, B> extends Evaluable2<A, B>, Applicable2<A, B, Boolean>,
   Applicable<A, Predicate<B>>, NullSafeAware<Predicate2<A, B>> {
 
