@@ -16,14 +16,7 @@ package net.sf.staccatocommons.lang;
 
 import java.io.Serializable;
 import java.util.Map;
-import java.util.NoSuchElementException;
 
-import net.sf.staccatocommons.defs.Applicable;
-import net.sf.staccatocommons.defs.Evaluable;
-import net.sf.staccatocommons.defs.Executable;
-import net.sf.staccatocommons.defs.Thunk;
-import net.sf.staccatocommons.defs.partial.ContainsAware;
-import net.sf.staccatocommons.defs.partial.SizeAware;
 import net.sf.staccatocommons.restrictions.Conditionally;
 import net.sf.staccatocommons.restrictions.Constant;
 import net.sf.staccatocommons.restrictions.EquivObject;
@@ -70,75 +63,10 @@ import net.sf.staccatocommons.restrictions.check.NonNull;
  */
 @EquivObject
 @Conditionally({ ValueObject.class, Serializable.class })
-public abstract class Option<A> extends AbstractProtoMonad<Option<A>, Option, A> implements
-  Thunk<A>, Iterable<A>, SizeAware, ContainsAware<A>, Serializable {
+public abstract class Option<A> extends AbstractOptional<A> implements
+  Serializable {
 
   private static final long serialVersionUID = -4635925023376621559L;
-
-  /**
-   * Package level visibility to allow subclasses inside package
-   */
-  Option() {}
-
-  /**
-   * Gets the optional value, if defined, or throws an
-   * {@link NoSuchElementException}, otherwise.
-   * 
-   * @return The optional value. This value is nullable, if client code
-   *         considers null as possible, valid values. Non null otherwise.
-   *         Please prefer the second approach, as normally, null values are
-   *         there in code to represent optional data, so nullable values in
-   *         optional values is in most scenarios completely redundant,
-   *         unnecessary an error prone.
-   * @throws NoSuchElementException
-   *           if this option is undefined, and thus there is no value.
-   */
-  public abstract A value() throws NoSuchElementException;
-
-  /**
-   * Returns if the value has been defined or not.
-   * 
-   * @return true is the value is defined. False otherwise
-   */
-  public abstract boolean isDefined();
-
-  /**
-   * 
-   * @return !{@link #isDefined()}
-   */
-  public boolean isUndefined() {
-    return !isDefined();
-  }
-
-  /**
-   * Applies the given <code>function</code> to the Option's value and wraps it
-   * into an Option, if defined. Returns {@link #none()}, otherwise
-   * 
-   * @param <T2>
-   * @param function
-   * @return the mapped {@link Option}
-   */
-  public final <T2> Option<T2> map(Applicable<? super A, ? extends T2> function) {
-    if (isDefined())
-      return Option.some((T2) function.apply(value()));
-    return Option.none();
-  }
-
-  /**
-   * Answers this option if defined and the given <code>predicate</code>
-   * evaluates to <code>true</code>. Answers {@link #none()}, otherwise
-   * 
-   * @param predicate
-   * @return the filtered Option
-   */
-  public final Option<A> filter(Evaluable<? super A> predicate) {
-    if (isDefined() && predicate.eval(value()))
-      return this;
-    return Option.none();
-  }
-
-  // public abstract <B> Option<B> bind(Applicable<? super A, Option<B>>
-  // function);
 
   /**
    * Factory method for creating an undefined value. This method guarantees to
@@ -153,47 +81,6 @@ public abstract class Option<A> extends AbstractProtoMonad<Option<A>, Option, A>
     return None.none();
   }
 
-  /**
-   * Returns the value of this {@link Option}, or the provided object if
-   * undefined
-   * 
-   * @param other
-   *          the return value in case this {@link Option} is undefined
-   * @return <code>this.value()</code> if defined, other <code>otherwise</code>
-   */
-  public abstract A valueOrElse(A other);
-
-  /**
-   * Returns the value of this {@link Option}, or the provided object if
-   * undefined
-   * 
-   * @param other
-   *          the thunk of the return value in case this {@link Option} is
-   *          undefined
-   * @return <code>this.value()</code> if defined, other.value()
-   *         <code>otherwise</code>
-   */
-  public abstract A valueOrElse(Thunk<? extends A> other);
-
-  /**
-   * Returns the value of this {@link Option}, or <code>null</code>, if
-   * undefined.
-   * 
-   * @return <code>this.value()</code> if defined, or <code>null</code>,
-   *         otherwise
-   */
-  public abstract A valueOrNull();
-
-  /**
-   * Executed the given block if this option is defined
-   * 
-   * @param block
-   */
-  public abstract void ifDefined(@NonNull Executable<? super A> block);
-
-  public void forEach(@NonNull Executable<? super A> block) {
-    ifDefined(block);
-  }
 
   /**
    * Factory method for creating defined values.This method does not guarantee
