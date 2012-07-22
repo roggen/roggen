@@ -13,7 +13,7 @@
 package net.sf.staccatocommons.restrictions;
 
 
-// * @since 2.3
+// * @since 3
 @Restriction
 public @interface ThreadSafe {
 
