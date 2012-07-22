@@ -1,4 +1,5 @@
 /**
+ *  Copyright (c) 2012, The Roggen Team
  *  Copyright (c) 2010-2012, The StaccatoCommons Team
  *
  *  This program is free software; you can redistribute it and/or modify
@@ -10,6 +11,7 @@
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU Lesser General Public License for more details.
  */
+
 package net.sf.staccatocommons.iterators;
 
 import java.util.Arrays;
