@@ -26,7 +26,7 @@ import java.lang.annotation.Target;
  * 
  * {@link EquivObject} <strong>should</strong> be also {@link ValueObject}s.
  * 
- * @since 2.3
+ * @since 3
  */
 @Documented
 @Inherited

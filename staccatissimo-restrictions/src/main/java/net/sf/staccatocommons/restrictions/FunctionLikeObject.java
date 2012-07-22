@@ -60,7 +60,7 @@ import net.sf.staccatocommons.restrictions.check.NonNull;
  * Thunk.value(), is non-null.
  * 
  * @author flbulgarelli
- * @since 2.3
+ * @since 3
  */
 @Documented
 @Retention(RetentionPolicy.SOURCE)

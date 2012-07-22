@@ -36,7 +36,7 @@ import java.lang.annotation.Target;
  * @see <a
  *      href="http://en.wikipedia.org/wiki/Side_effect_(computer_science)">Side
  *      effect</a>
- * @since 2.3 
+ * @since 3 
  * @author flbulgarelli
  *
  */

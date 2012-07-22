@@ -24,15 +24,17 @@ import java.lang.annotation.Target;
  * 
  * That is:
  * <ul>
- * <li>Are immutable: are stateless or its state is constant. In order to ensure
- * this, they <strong>must</strong> be unmodifiable by exposing no mutator
- * messages, nor any non-final attribute. The <strong>should</strong> also have
- * all its fields final. They <strong>may</strong> implement lazy
- * initializations</li>
- * <li>Its identity is not important: nearly a consequence of the previous item,
- * which means that it has no sense to test two value objects for identity with
- * {@code ==} operator. Two objects with the same value behave exactly the same
- * way, and <strong>must</strong> be treated indistinctly</li>
+ * <li>Its identity is not important: which means that you can use that object
+ * or another one with same value, behavior plus state, interchangabily. Thus,
+ * it has no sense to test two value objects for identity with {@code ==}
+ * operator. Two objects with the same value behave exactly the same way, and
+ * <strong>must</strong> be treated indistinctly</li>
+ * <li>Are immutable: are stateless or its state is constant. This is a
+ * consequence of previous item. In order to ensure this, they
+ * <strong>must</strong> be unmodifiable by exposing no mutator messages, nor
+ * any non-final attribute. The <strong>should</strong> also have all its fields
+ * final. They <strong>may</strong> implement lazy initializations</li>
+ * 
  * </ul>
  * 
  * <p/>
@@ -66,7 +68,7 @@ import java.lang.annotation.Target;
  * 
  * @see Restriction
  * @author flbulgarelli
- * @since 2.3
+ * @since 3
  */
 @Documented
 @Inherited
