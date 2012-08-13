@@ -66,9 +66,9 @@ public class Methods {
     for (int i = 0; i < passedArgTypes.length; i++) {
       Class<?> actual = actualArgTypes[i];
       Class<?> passed = passedArgTypes[i];
-      if (!(actual.isAssignableFrom(passed) || PrimitiveWrappers.isPrimitiveWrapperFor(
-        actual,
-        passed)))
+      if (!(passed == null  
+    		  || actual.isAssignableFrom(passed) 
+    		  || PrimitiveWrappers.isPrimitiveWrapperFor(actual, passed)))
         return false;
     }
     return true;
@@ -79,7 +79,7 @@ public class Methods {
     int arguments = args.length;
     Class<?>[] parameterTypes = new Class[arguments];
     for (int i = 0; i < arguments; i++) {
-      parameterTypes[i] = args[i].getClass();
+      parameterTypes[i] = args[i] != null ? args[i].getClass() : null;
     }
     return parameterTypes;
   }
