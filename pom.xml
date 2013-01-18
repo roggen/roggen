@@ -207,95 +207,15 @@
       </plugins>
    </build>
 
-
-
-
-   <profiles>
-
-      <profile>
-         <id>basic</id>
-         <modules>
-            <module>roggen-testing</module>
-            <module>roggen-restrictions</module>
-            <module>roggen-core</module>
-            <module>roggen-dynamic</module>
-            <module>roggen-lambda</module>
-            <module>roggen-instrument</module>
-            <module>roggen-restrictions-instrument</module>
-            <module>roggen-restrictions-instrument-maven-plugin</module>
-         </modules>
-         <build>
-            <plugins>
-               <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-surefire-plugin</artifactId>
-                  <version>2.5</version>
-                  <configuration>
-                     <excludes>
-                        <exclude>**/ClassesInstrumentedDummyTest.java</exclude>
-                     </excludes>
-                  </configuration>
-               </plugin>
-            </plugins>
-         </build>
-      </profile>
-      <profile>
-         <id>noinstrument</id>
-         <modules>
-            <module>roggen-testing</module>
-            <module>roggen-restrictions</module>
-            <module>roggen-restrictions-instrument-maven-plugin</module>
-         </modules>
-         <build>
-            <plugins>
-               <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-surefire-plugin</artifactId>
-                  <version>2.5</version>
-                  <configuration>
-                     <excludes>
-                        <exclude>**/ClassesInstrumentedDummyTest.java</exclude>
-                     </excludes>
-                  </configuration>
-               </plugin>
-            </plugins>
-         </build>
-      </profile>
-      <profile>
-         <id>instrument</id>
-         <modules>
-            <module>roggen-core</module>
-            <module>roggen-dynamic</module>
-            <module>roggen-lambda</module>
-            <module>roggen-restrictions</module>
-            <module>roggen-instrument</module>
-            <module>roggen-restrictions-instrument</module>
-         </modules>
-         <activation>
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <build>
-            <plugins>
-               <plugin>
-                  <groupId>net.sf.roggen</groupId>
-                  <artifactId>roggen-restrictions-instrument-maven-plugin</artifactId>
-                  <version>${project.version}</version>
-                  <configuration>
-                     <ignoreReturnChecks>true</ignoreReturnChecks>
-                     <ignoreConstants>false</ignoreConstants>
-                     <ignoreChecks>false</ignoreChecks>
-                  </configuration>
-                  <executions>
-                     <execution>
-                        <phase>process-classes</phase>
-                        <goals>
-                           <goal>instrument</goal>
-                        </goals>
-                     </execution>
-                  </executions>
-               </plugin>
-            </plugins>
-         </build>
-      </profile>
-   </profiles>
+  <modules>
+    <module>roggen-core</module>
+    <module>roggen-dynamic</module>
+    <module>roggen-lambda</module>
+    <module>roggen-restrictions</module>
+    <module>roggen-instrument</module>
+    <module>roggen-restrictions-instrument</module>
+    <module>roggen-restrictions-instrument-maven-plugin</module>
+  </modules>
+        
+      
 </project>

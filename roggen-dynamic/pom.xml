@@ -3,7 +3,7 @@
 	<parent>
 		<artifactId>roggen-parent-pom</artifactId>
 		<groupId>net.sf.roggen</groupId>
-		<version>2.3-SNAPSHOT</version>
+		<version>3.0-SNAPSHOT</version>
 	</parent>
 	<groupId>net.sf.roggen</groupId>
     <name>Staccatissimo-Dynamic</name>
