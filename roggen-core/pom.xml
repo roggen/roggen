@@ -31,12 +31,12 @@
       <artifactId>commons-lang</artifactId>
       <version>2.4</version>
     </dependency>
-        <dependency>
+    <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
       <version>2.4</version>
     </dependency>
-    
+
     <dependency>
       <groupId>net.sf.roggen</groupId>
       <artifactId>roggen-restrictions</artifactId>
@@ -52,6 +52,24 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>net.sf.roggen</groupId>
+        <artifactId>roggen-restrictions-instrument-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <ignoreReturnChecks>true</ignoreReturnChecks>
+          <ignoreConstants>false</ignoreConstants>
+          <ignoreChecks>false</ignoreChecks>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>instrument</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.codehaus.groovy.maven</groupId>
         <artifactId>gmaven-plugin</artifactId>
@@ -86,14 +104,5 @@
       </plugin>
     </plugins>
   </build>
-
-
-
-
-
-
-
-
-
 
 </project>

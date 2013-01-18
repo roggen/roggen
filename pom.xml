@@ -100,9 +100,15 @@
                      <version>2.4</version>
                   </plugin>
                   <plugin>
-                     <groupId>org.apache.maven.plugins</groupId>
-                     <artifactId>maven-surefire-report-plugin</artifactId>
-                     <version>2.5</version>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.5</version>
+                        <configuration>
+                                <excludes>
+                                        <exclude>**/*ManualTest.java</exclude>
+                                        <exclude>**/*AbstractUnitTest.java</exclude>
+                                </excludes>
+                        </configuration>
                   </plugin>
                   <plugin>
                      <groupId>org.apache.maven.plugins</groupId>
@@ -208,13 +214,11 @@
    </build>
 
   <modules>
+    <module>roggen-restrictions-instrument-maven-plugin</module>
     <module>roggen-core</module>
     <module>roggen-dynamic</module>
     <module>roggen-lambda</module>
     <module>roggen-restrictions</module>
-    <module>roggen-instrument</module>
-    <module>roggen-restrictions-instrument</module>
-    <module>roggen-restrictions-instrument-maven-plugin</module>
   </modules>
         
       
