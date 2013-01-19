@@ -98,7 +98,7 @@ public class Predicates {
    * @return <code>Equiv.equal().apply(value)</code>
    */
   @NullSafe
-  public static <T> Predicate<T> equal(@NonNull T value) {
+  public static <T> Predicate<T> equal(T value) {
     return new Equals<T>(value);
   }
   
@@ -109,7 +109,7 @@ public class Predicates {
    * @param value
    * @return a Predicate that evaluates if <code>!value.equals(argument)</code>
    */
-  public static <T> Predicate<T> notEqual(@NonNull T value) {
+  public static <T> Predicate<T> notEqual(T value) {
     return equal(value).not();
   }
 

@@ -194,7 +194,7 @@ public interface Stream<A> extends //
    *         the given one
    */
   @Projection
-  Stream<A> skip(@NonNull A element);
+  Stream<A> skip(A element);
 
   // Specialized filtering
 
