@@ -24,12 +24,14 @@ import net.sf.staccatocommons.restrictions.processing.EnforceRestrictions;
 import net.sf.staccatocommons.restrictions.processing.IgnoreRestrictions;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
  * @author flbulgarelli
  * 
  */
+@Ignore
 @SuppressWarnings("unused")
 public class InstrumentationManualTest {
 
