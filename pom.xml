@@ -215,6 +215,7 @@
 
   <modules>
     <module>roggen-restrictions-instrument-maven-plugin</module>
+    <module>roggen-testing</module>
     <module>roggen-core</module>
     <module>roggen-dynamic</module>
     <module>roggen-lambda</module>
