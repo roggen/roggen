@@ -12,16 +12,6 @@
  *  GNU Lesser General Public License for more details.
  */
 
-/*
-Copyright (c) 2012, The Staccato-Commons Team
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as published by
-the Free Software Foundation; version 3 of the License.
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Lesser General Public License for more details.
-*/
 import org.apache.commons.lang.CharUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils
@@ -100,7 +90,7 @@ def generateSource =  { outputDir, generatedClassName, targetApacheClass ->
   new File(outputDir, "${generatedClassName}.java").withWriter { out ->
     out << """/**
  *  Copyright (c) 2012, The Roggen Team
- *  Copyright (c) 2010-2012, The StaccatoCommons Team
+ *  Copyright (c) 2010-2012, The roggen Team
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -116,13 +106,13 @@ def generateSource =  { outputDir, generatedClassName, targetApacheClass ->
 ///// WARNING: GENERATE CODE. DO NOT EDIT ///////
 /////////////////////////////////////////////////
 
-package net.sf.staccatocommons.util.apache;
+package net.sf.roggen.util.apache;
 
-import net.sf.staccatocommons.defs.NullSafe;
-import net.sf.staccatocommons.defs.function.Function;
-import net.sf.staccatocommons.defs.predicate.Predicate;
-import net.sf.staccatocommons.lang.function.internal.TopLevelFunction;
-import net.sf.staccatocommons.lang.predicate.internal.TopLevelPredicate;
+import net.sf.roggen.defs.NullSafe;
+import net.sf.roggen.defs.function.Function;
+import net.sf.roggen.defs.predicate.Predicate;
+import net.sf.roggen.lang.function.internal.TopLevelFunction;
+import net.sf.roggen.lang.predicate.internal.TopLevelPredicate;
 
 import org.apache.commons.lang.${targetClassName};
 
@@ -141,7 +131,7 @@ ${stringMethodsFor(targetApacheClass)
   }
 }
 
-def outputDir = new File("target/generated-sources/net/sf/staccatocommons/util/apache")
+def outputDir = new File("target/generated-sources/net/sf/roggen/util/apache")
 outputDir.mkdirs()
 
 generateSource outputDir, 'Strings', StringUtils

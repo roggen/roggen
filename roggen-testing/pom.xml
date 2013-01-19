@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.sf.roggen</groupId>
 	<artifactId>roggen-testing</artifactId>
-	<name>Staccatissimo-Testing</name>
+	<name>Roggen-Testing</name>
 	<version>3.0-SNAPSHOT</version>
 	<inceptionYear>2010</inceptionYear>
 	<description>Testing components build on top of JUnit 4</description>

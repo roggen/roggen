@@ -4,7 +4,7 @@
   <groupId>net.sf.roggen</groupId>
   <artifactId>roggen-core</artifactId>
   <name>Roggen-Core</name>
-  <description>Staccatissimo core classes</description>
+  <description>Roggen core classes</description>
   <version>3.0-SNAPSHOT</version>
   <inceptionYear>2010</inceptionYear>
 

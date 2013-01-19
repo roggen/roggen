@@ -6,7 +6,7 @@
 		<version>3.0-SNAPSHOT</version>
 	</parent>
 	<groupId>net.sf.roggen</groupId>
-    <name>Staccatissimo-Dynamic</name>
+    <name>Roggen-Dynamic</name>
 	<artifactId>roggen-dynamic</artifactId>
 	<version>3.0-SNAPSHOT</version>
     <inceptionYear>2010</inceptionYear>

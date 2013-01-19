@@ -1,0 +1,82 @@
+/**
+ *  Copyright (c) 2012, The Roggen Team
+ *  Copyright (c) 2010-2012, The StaccatoCommons Team
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU Lesser General Public License as published by
+ *  the Free Software Foundation; version 3 of the License.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Lesser General Public License for more details.
+ */
+
+/*
+ Copyright (c) 2011, The Staccato-Commons Team
+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; version 3 of the License.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Lesser General Public License for more details.
+ */
+package net.sf.roggen.lang;
+
+import org.apache.commons.lang.ObjectUtils;
+
+import net.sf.roggen.defs.Executable;
+import net.sf.roggen.defs.ProtoMonad;
+import net.sf.roggen.lang.function.AbstractFunction;
+import net.sf.roggen.lang.function.Functions;
+import net.sf.roggen.lang.predicate.Predicates;
+
+/**
+ * Abstract {@link ProtoMonad}, which provides default implementations for all
+ * the optional operations
+ * 
+ * @author flbulgarelli
+ * @since 2.1
+ */
+public abstract class AbstractProtoMonad<Type, RawType, A> implements ProtoMonad<Type, RawType, A> {
+
+  public Type skip(A element) {
+    return filter(Predicates.notEqual(element));
+  }
+
+  public Type skipNull() {
+    return filter(Predicates.notNull());
+  }
+
+  public Type replace(final A element, final A replacement) {
+    return (Type) map(new AbstractFunction<A, A>() {
+      public A apply(A arg) {
+        return ObjectUtils.equals(element, arg) ? replacement : arg;
+      }
+    });
+  }
+
+  public Type replaceNull(final A replacement) {
+    return (Type) map(new AbstractFunction<A, A>() {
+      public A apply(A arg) {
+        return arg == null ? replacement : arg;
+      }
+    });
+  }
+
+  public Type each(final Executable<? super A> block) {
+    return (Type) map(Functions.impure(block));
+  }
+
+  // public ThisType branch(final Executable<? super A> block) {
+  // return (ThisType) map(Functions.impure(block));
+  // }
+  //
+  // public ThisType clone(final Executable<? super A> block) {
+  // return (ThisType) map(Functions.impure(block));
+  // }
+
+}

@@ -9,7 +9,7 @@
   <groupId>net.sf.roggen</groupId>
   <artifactId>roggen-restrictions-instrument-maven-plugin</artifactId>
   <version>3.0-SNAPSHOT</version>
-  <name>Staccatissimo-Restrictions-Instrument-Maven-Plugin</name>
+  <name>Roggen-Restrictions-Instrument-Maven-Plugin</name>
   <packaging>maven-plugin</packaging>
   <description>A Maven Mojo for instrummenting restrictions as part of
     the build process

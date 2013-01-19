@@ -1,0 +1,42 @@
+/**
+ *  Copyright (c) 2012, The Roggen Team
+ *  Copyright (c) 2010-2012, The StaccatoCommons Team
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU Lesser General Public License as published by
+ *  the Free Software Foundation; version 3 of the License.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Lesser General Public License for more details.
+ */
+
+
+package net.sf.roggen.control.monad.internal;
+
+import net.sf.roggen.control.monad.Monad;
+import net.sf.roggen.control.monad.MonadicValue;
+import net.sf.roggen.defs.Applicable;
+
+/**
+ * @author flbulgarelli
+ * 
+ */
+public class SingleMonadValue<A> implements MonadicValue<A> {
+
+  private final A value;
+
+  /**
+   * Creates a new {@link SingleMonadValue}
+   */
+  public SingleMonadValue(A value) {
+    this.value = value;
+  }
+
+  /* return a >>= k == k a */
+  public <T> void eval(Applicable<? super A, Monad<T>> function) {
+    function.apply(value).value();
+  }
+
+}
